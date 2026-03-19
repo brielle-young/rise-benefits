@@ -1,0 +1,37 @@
+import { Link } from "react-router-dom";
+
+export default function Footer() {
+  return (
+    <footer className="border-t bg-card mt-auto">
+      <div className="container py-10 grid gap-8 sm:grid-cols-3">
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xl">🌱</span>
+            <span className="font-serif text-lg text-primary font-bold">RISE</span>
+          </div>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Residential Incentives for Sustainability and Environmentalism. Helping every household access sustainability programs.
+          </p>
+        </div>
+        <div>
+          <h4 className="font-sans text-sm font-semibold mb-3 text-foreground">Navigate</h4>
+          <ul className="space-y-2 text-sm text-muted-foreground">
+            <li><Link to="/" className="hover:text-foreground transition-colors">Home</Link></li>
+            <li><Link to="/federal" className="hover:text-foreground transition-colors">Federal Programs</Link></li>
+            <li><Link to="/about" className="hover:text-foreground transition-colors">About Us</Link></li>
+            <li><Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-sans text-sm font-semibold mb-3 text-foreground">Disclaimer</h4>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            RISE is an informational tool. We do not determine eligibility, process applications, or provide financial advice.
+          </p>
+        </div>
+      </div>
+      <div className="border-t py-4 text-center text-xs text-muted-foreground">
+        © {new Date().getFullYear()} RISE. A student-led initiative.
+      </div>
+    </footer>
+  );
+}
