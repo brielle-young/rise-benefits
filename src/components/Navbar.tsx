@@ -4,7 +4,9 @@ import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
+  { to: "/states", label: "State Programs" },
   { to: "/federal", label: "Federal Programs" },
+  { to: "/local", label: "Local Info" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
@@ -21,7 +23,6 @@ export default function Navbar() {
           <span className="font-serif text-xl text-primary font-bold tracking-tight">RISE</span>
         </Link>
 
-        {/* Desktop */}
         <nav className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map((l) => (
             <Link
@@ -38,7 +39,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Mobile toggle */}
         <button
           className="md:hidden p-2 rounded-md hover:bg-muted"
           onClick={() => setOpen(!open)}
@@ -48,7 +48,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <nav className="md:hidden border-t bg-card px-4 pb-4 pt-2 space-y-1">
           {NAV_LINKS.map((l) => (

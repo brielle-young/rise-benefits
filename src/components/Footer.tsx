@@ -17,7 +17,9 @@ export default function Footer() {
           <h4 className="font-sans text-sm font-semibold mb-3 text-foreground">Navigate</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><Link to="/" className="hover:text-foreground transition-colors">Home</Link></li>
+            <li><Link to="/states" className="hover:text-foreground transition-colors">State Programs</Link></li>
             <li><Link to="/federal" className="hover:text-foreground transition-colors">Federal Programs</Link></li>
+            <li><Link to="/local" className="hover:text-foreground transition-colors">Local Info</Link></li>
             <li><Link to="/about" className="hover:text-foreground transition-colors">About Us</Link></li>
             <li><Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>
           </ul>
