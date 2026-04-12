@@ -19,16 +19,22 @@ export default function Footer() {
             <li><Link to="/" className="hover:text-foreground transition-colors">Home</Link></li>
             <li><Link to="/states" className="hover:text-foreground transition-colors">State Programs</Link></li>
             <li><Link to="/federal" className="hover:text-foreground transition-colors">Federal Programs</Link></li>
-            <li><Link to="/local" className="hover:text-foreground transition-colors">Local Info</Link></li>
+            <li><Link to="/local" className="hover:text-foreground transition-colors">Local Programs</Link></li>
             <li><Link to="/about" className="hover:text-foreground transition-colors">About Us</Link></li>
             <li><Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>
           </ul>
         </div>
         <div>
-          <h4 className="font-sans text-sm font-semibold mb-3 text-foreground">Disclaimer</h4>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            RISE is an informational tool. We do not determine eligibility, process applications, or provide financial advice.
+          <h4 className="font-sans text-sm font-semibold mb-3 text-foreground">Get in Touch</h4>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+            Questions, corrections, or suggestions? Reach out to us directly.
           </p>
+          <a
+            href="mailto:rise_initiative@cornell.edu"
+            className="text-sm font-medium text-primary hover:underline"
+          >
+            rise_initiative@cornell.edu
+          </a>
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">

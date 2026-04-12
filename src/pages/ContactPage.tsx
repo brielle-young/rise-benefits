@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { Mail } from "lucide-react";
 
 const MESSAGE_TYPES = [
   "Report a broken link",
@@ -14,7 +15,14 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you! Your message has been received.");
+
+    const subject = encodeURIComponent(`[RISE Contact] ${form.type}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nType: ${form.type}\n\nMessage:\n${form.message}`
+    );
+    window.location.href = `mailto:rise_initiative@cornell.edu?subject=${subject}&body=${body}`;
+
+    toast.success("Opening your email client — thank you for reaching out!");
     setForm({ name: "", email: "", type: MESSAGE_TYPES[0], message: "" });
   };
 
@@ -27,6 +35,19 @@ export default function ContactPage() {
 
       <div className="rounded-lg border border-secondary/40 bg-secondary/10 p-4 mb-8 text-sm text-muted-foreground">
         <strong className="text-foreground">Please note:</strong> RISE cannot provide eligibility determinations or process applications. We welcome corrections, program suggestions, and general feedback.
+      </div>
+
+      <div className="flex items-center gap-3 rounded-lg border bg-card p-4 mb-8">
+        <Mail size={20} className="text-primary shrink-0" />
+        <div>
+          <p className="text-sm font-medium text-card-foreground">Email us directly</p>
+          <a
+            href="mailto:rise_initiative@cornell.edu"
+            className="text-sm text-primary hover:underline"
+          >
+            rise_initiative@cornell.edu
+          </a>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">

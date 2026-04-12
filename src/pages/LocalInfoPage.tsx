@@ -74,9 +74,9 @@ export default function LocalInfoPage() {
   return (
     <div className="container py-12 max-w-4xl">
       <p className="text-sm text-muted-foreground mb-1">
-        <Link to="/" className="hover:text-foreground transition-colors">Home</Link> / Local Information
+        <Link to="/" className="hover:text-foreground transition-colors">Home</Link> / Local Programs
       </p>
-      <h1 className="font-serif text-3xl md:text-4xl mb-2">Local Information & Resources</h1>
+      <h1 className="font-serif text-3xl md:text-4xl mb-2">Local Programs & Resources</h1>
       <p className="text-muted-foreground mb-10 max-w-2xl">
         Beyond the programs listed on RISE, there are many ways to find sustainability incentives in your area. Here's how to navigate local resources.
       </p>

@@ -12,6 +12,7 @@ const TEAMS: { name: string; members: TeamMember[] }[] = [
       { name: "Team Lead 1", role: "Project Director" },
       { name: "Team Lead 2", role: "Operations Lead" },
       { name: "Team Lead 3", role: "Research Lead" },
+      { name: "Team Lead 4", role: "Strategy Lead" },
     ],
   },
   {
@@ -44,10 +45,10 @@ export default function AboutPage() {
 
       <section className="space-y-4 text-muted-foreground leading-relaxed">
         <p>
-          <strong className="text-foreground">Residential Incentives for Sustainability and Environmentalism (RISE)</strong> is a student-led initiative building a centralized, public-facing platform that compiles and clearly explains residential sustainability programs across all 50 states and U.S. territories.
+          <strong className="text-foreground">RISE (Residential Incentives for Sustainability and Environmentalism)</strong> is a student-led project with a simple goal: make it easier for people to find sustainability programs they can actually use. We built a free, public platform that gathers residential sustainability programs from across all 50 states and U.S. territories and presents them in one searchable directory.
         </p>
         <p>
-          RISE organizes existing sustainability programs by location and category so that eligibility requirements, benefits, and next steps are transparent and accessible — without requiring prior policy knowledge or advanced online searches.
+          Too often, valuable rebates and incentives go unclaimed because the information is hard to find, scattered across multiple agencies, or written in language that's difficult to parse. RISE organizes these programs by location and category so that anyone — regardless of policy knowledge or technical literacy — can see what's available, understand the requirements, and take the next step.
         </p>
       </section>
 
@@ -83,7 +84,7 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
             <h3 className="font-serif text-xl mb-4 text-foreground">{team.name}</h3>
-            <div className="grid sm:grid-cols-3 gap-3">
+            <div className={`grid gap-3 ${team.members.length === 4 ? "sm:grid-cols-4" : "sm:grid-cols-3"}`}>
               {team.members.map((member) => (
                 <div
                   key={member.name}
@@ -104,11 +105,11 @@ export default function AboutPage() {
       <hr className="my-10 border-border" />
 
       <h2 className="font-serif text-2xl mb-4">What RISE Is Not</h2>
-      <ul className="list-disc list-inside space-y-2 text-muted-foreground text-sm">
-        <li>RISE does not determine eligibility or provide applications directly.</li>
-        <li>RISE does not offer financial advice or guarantee program availability.</li>
-        <li>RISE is an information and navigation tool — not a replacement for official agencies.</li>
-      </ul>
+      <div className="space-y-3 text-muted-foreground text-sm">
+        <p>RISE does not determine eligibility or provide applications directly.</p>
+        <p>RISE does not offer financial advice or guarantee program availability.</p>
+        <p>RISE is an information and navigation tool — not a replacement for official agencies.</p>
+      </div>
     </div>
   );
 }

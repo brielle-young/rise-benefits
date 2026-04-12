@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/states", label: "State Programs" },
   { to: "/federal", label: "Federal Programs" },
-  { to: "/local", label: "Local Info" },
+  { to: "/local", label: "Local Programs" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
