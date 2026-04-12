@@ -46,7 +46,7 @@ export default function AboutPage() {
 
       <section className="space-y-4 text-muted-foreground leading-relaxed">
         <p>
-          <strong className="text-foreground">RISE (Residential Incentives for Sustainability and Environmentalism)</strong> is a student-led project with a simple goal: make it easier for people to find sustainability programs they can actually use. We built a free, public platform that gathers residential sustainability programs from across all 50 states and U.S. territories and presents them in one searchable directory.
+          <strong className="text-foreground">RISE (Residential Incentives for Sustainability and Environmentalism)</strong> is a student-led project that makes it easier for people to find sustainability programs they can actually use. We built a free, public platform that gathers residential sustainability programs from across all 50 states and U.S. territories and presents them in one searchable directory.
         </p>
         <p>
           Too often, valuable rebates and incentives go unclaimed because the information is hard to find, scattered across multiple agencies, or written in language that's difficult to parse. RISE organizes these programs by location and category so that anyone, regardless of policy knowledge or technical literacy, can see what is available, understand the requirements, and take the next step.
