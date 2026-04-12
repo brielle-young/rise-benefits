@@ -116,7 +116,7 @@ export default function AboutPage() {
       <div className="space-y-3 text-muted-foreground text-sm">
         <p>RISE does not determine eligibility or provide applications directly.</p>
         <p>RISE does not offer financial advice or guarantee program availability.</p>
-        <p>RISE is an information and navigation tool — not a replacement for official agencies.</p>
+        <p>RISE is an information and navigation tool - not a replacement for official agencies.</p>
       </div>
     </div>
   );
