@@ -8,9 +8,9 @@ const RESOURCES = [
     icon: "🏠",
     description: "Some of the easiest incentives to obtain are from your local electric, gas, and water utilities, which often run their own rebate and efficiency programs.",
     steps: [
-      "Check your recent utility bill for your provider's name.",
+      "Check your recent utility bill to find your provider's name.",
       "Visit their website and search for \"rebates,\" \"incentives,\" or \"energy efficiency programs.\"",
-      "Many utilities offer free home energy audits — call and ask.",
+      "Many utilities offer free home energy audits. All you have to do is call and ask.",
       "Low-income assistance programs (like LIHEAP) are often administered through utilities.",
     ],
     link: { label: "LIHEAP — Low Income Energy Assistance", url: "https://www.acf.hhs.gov/ocs/low-income-home-energy-assistance-program-liheap" },
@@ -42,10 +42,10 @@ const RESOURCES = [
   {
     title: "Contact Your Local Government",
     icon: "🏛️",
-    description: "County and municipal governments may offer additional programs not listed in state or federal databases — from composting and recycling to weatherization grants.",
+    description: "County and municipal governments may offer additional programs not listed in state or federal databases, such as composting, recycling, and weatherization grants.",
     steps: [
       "Search \"[your city or county] sustainability programs\" or \"green incentives.\"",
-      "Check your local government website for environment or public works departments.",
+      "Check your local government website for environmental or public works departments.",
       "Attend city council or county board meetings where new programs are discussed.",
       "Ask about Community Development Block Grants (CDBG) that may fund local green initiatives.",
     ],
