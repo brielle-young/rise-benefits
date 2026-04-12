@@ -6,9 +6,9 @@ const RESOURCES = [
   {
     title: "Find Your Local Utility",
     icon: "🏠",
-    description: "Your local electric, gas, and water utilities often run their own rebate and efficiency programs. These are some of the easiest incentives to access.",
+    description: "Some of the easiest incentives to obtain are from your local electric, gas, and water utilities, which often run their own rebate and efficiency programs.",
     steps: [
-      "Check a recent utility bill for your provider's name.",
+      "Check your recent utility bill for your provider's name.",
       "Visit their website and search for \"rebates,\" \"incentives,\" or \"energy efficiency programs.\"",
       "Many utilities offer free home energy audits — call and ask.",
       "Low-income assistance programs (like LIHEAP) are often administered through utilities.",
@@ -77,9 +77,8 @@ export default function LocalInfoPage() {
         <Link to="/" className="hover:text-foreground transition-colors">Home</Link> / Local Programs
       </p>
       <h1 className="font-serif text-3xl md:text-4xl mb-2">Local Programs & Resources</h1>
-      <h1 className="font-serif text-3xl md:text-4xl mb-2">Local Programs & Resources</h1>
       <p className="text-muted-foreground mb-10 max-w-2xl">
-        Beyond the programs listed on RISE, there are many ways to find sustainability incentives in your area. Here's how to navigate local resources.
+        Beyond the programs listed on RISE, there are many other ways to find sustainability incentives in your area. Here is how to navigate local resources.
       </p>
 
       <div className="space-y-6">
