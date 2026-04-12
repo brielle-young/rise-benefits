@@ -22,7 +22,7 @@ export default function ContactPage() {
     <div className="container py-12 max-w-2xl">
       <h1 className="font-serif text-3xl md:text-4xl mb-2">Contact Us</h1>
       <p className="text-muted-foreground mb-8">
-        Have a correction, suggestion, or question? We'd love to hear from you.
+        Have a correction, suggestion, or question? Please contact us through the form or email at rise_initiative@cornell.edu. We'd love to hear from you.
       </p>
 
       <div className="rounded-lg border border-secondary/40 bg-secondary/10 p-4 mb-8 text-sm text-muted-foreground">
