@@ -3,15 +3,17 @@ import { motion } from "framer-motion";
 interface TeamMember {
   name: string;
   role: string;
+  pfp?: string;
 }
 
 const TEAMS: { name: string; members: TeamMember[] }[] = [
   {
     name: "Leadership Team",
     members: [
-      { name: "Team Lead 1", role: "Project Director" },
+      { name: "Team Lead 1", role: "Project Director", pfp: "/TeamPics/11016948_media-01.avif" },
       { name: "Team Lead 2", role: "Operations Lead" },
       { name: "Team Lead 3", role: "Research Lead" },
+      { name: "Team Lead 4", role: "IDK Lead" },
     ],
   },
   {
@@ -90,7 +92,16 @@ export default function AboutPage() {
                   className="rounded-lg border bg-card p-4 text-center transition-shadow hover:shadow-md"
                 >
                   <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3 text-lg font-semibold">
-                    {member.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
+                    {member.pfp ? ( //if pfp exisits
+                      <img
+                        src={member.pfp}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      /> ) : ( //if pfp doesn't exist, use initials
+                      <span className="text-lg font-semibold text-primary">
+                        {member.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
+                      </span>
+                    )}
                   </div>
                   <p className="text-sm font-medium text-card-foreground">{member.name}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">{member.role}</p>
