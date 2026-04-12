@@ -10,26 +10,26 @@ const TEAMS: { name: string; members: TeamMember[] }[] = [
   {
     name: "Leadership Team",
     members: [
-      { name: "Team Lead 1", role: "Project Director", pfp: "/TeamPics/11016948_media-01.avif" },
-      { name: "Team Lead 2", role: "Operations Lead" },
-      { name: "Team Lead 3", role: "Research Lead" },
-      { name: "Team Lead 4", role: "Strategy Lead" },
+      { name: "Brielle Young", role: "Team Lead", pfp: "/TeamPics/brielle_young.png" },
+      { name: "Supriya Anand", role: "Team Lead", pfp: "/TeamPics/touchdown.avif" },
+      { name: "Mia Tarantini", role: "Team Lead", pfp: "/TeamPics/touchdown.avif" },
+      { name: "Iris Ren", role: "Team Lead", pfp: "/TeamPics/touchdown.avif" },
+
     ],
   },
   {
     name: "Marketing Team",
     members: [
-      { name: "Marketing Member 1", role: "Communications" },
-      { name: "Marketing Member 2", role: "Outreach" },
-      { name: "Marketing Member 3", role: "Social Media" },
+      { name: "Ianna Banfield", role: "Marketing", pfp: "/TeamPics/touchdown.avif" },
+      { name: "Saanvi Mantha", role: "Marketing", pfp: "/TeamPics/touchdown.avif" },
     ],
   },
   {
     name: "Web Development Team",
     members: [
-      { name: "Dev Member 1", role: "Frontend Developer" },
-      { name: "Dev Member 2", role: "UI/UX Designer" },
-      { name: "Dev Member 3", role: "Content Developer" },
+      { name: "Anna Kuang", role: "Developer", pfp: "/TeamPics/anna_kuang.png" },
+      { name: "Mindi Hu", role: "Developer", pfp: "/TeamPics/mindi_hu.jpg" },
+      { name: "Samantha Ahn", role: "Developer", pfp: "/TeamPics/samantha_ahn.png" },
     ],
   },
 ];
@@ -85,13 +85,11 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
             <h3 className="font-serif text-xl mb-4 text-foreground">{team.name}</h3>
-            <div className={`grid gap-3 ${team.members.length === 4 ? "sm:grid-cols-4" : "sm:grid-cols-3"}`}>
-              {team.members.map((member) => (
+            <div className={`flex gap-4 justify-start ${team.name === "Leadership Team" ? "flex-nowrap" : "flex-wrap"}`}>              {team.members.map((member) => (
                 <div
                   key={member.name}
-                  className="rounded-lg border bg-card p-4 text-center transition-shadow hover:shadow-md"
-                >
-                  <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3 text-lg font-semibold">
+                  className="w-48 rounded-lg border bg-card p-6 text-center transition-shadow hover:shadow-md">
+                  <div className="w-36 h-36 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3 text-lg font-semibold">
                     {member.pfp ? ( //if pfp exisits
                       <img
                         src={member.pfp}
