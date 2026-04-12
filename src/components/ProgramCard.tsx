@@ -35,9 +35,9 @@ export default function ProgramCard({ program }: { program: Program }) {
   return (
     <div
       className="group rounded-lg border bg-card p-5 transition-shadow hover:shadow-md"
-      onMouseEnter={() => program.details && setHovered(true)}
+      onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={() => program.details && HandleClick()}>
+      onClick={() => HandleClick()}>
     
       <div className="flex items-start justify-between gap-3 mb-3">
         <h3 className="font-serif text-lg text-card-foreground leading-snug">{program.name}</h3>
@@ -50,7 +50,7 @@ export default function ProgramCard({ program }: { program: Program }) {
       <p className="text-sm text-muted-foreground leading-relaxed mb-3">{program.description}</p>
 
       <AnimatePresence>
-        {expanded && program.details && (
+        {expanded &&(
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
@@ -61,6 +61,11 @@ export default function ProgramCard({ program }: { program: Program }) {
             <div className="rounded-md bg-muted p-3 mb-3 text-sm text-muted-foreground leading-relaxed border-l-2 border-primary/30">
               <p className="font-medium text-foreground text-xs uppercase tracking-wide mb-1">How to Access</p>
               {program.details}
+              {program.disclaimer && (
+                <p className="mt-2 text-xs text-yellow-600 dark:text-yellow-400 border-t border-border pt-2">
+                  ⚠️ {program.disclaimer}
+                </p>
+              )}
             </div>
           </motion.div>
         )}
