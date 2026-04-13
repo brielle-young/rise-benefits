@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import riseLogo from "@/assets/rise-logo.png";
 
 export default function Footer() {
   return (

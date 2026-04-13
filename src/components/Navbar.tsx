@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import riseLogo from "@/assets/rise-logo.png";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
