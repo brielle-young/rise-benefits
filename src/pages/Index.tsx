@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Search, ArrowRight } from "lucide-react";
+import { Search, ArrowRight, Leaf, Droplets, Bus, Recycle } from "lucide-react";
 import { useState, useMemo, useRef, useEffect } from "react";
 import { US_STATES, CATEGORIES } from "@/data/programs";
-import heroIllustration from "@/assets/hero-illustration.png";
 
 export default function Index() {
   const navigate = useNavigate();
