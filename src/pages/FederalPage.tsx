@@ -1,14 +1,29 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { getFederalPrograms, type ProgramCategory } from "@/data/programs";
+import { type ProgramCategory } from "@/data/programs";
 import ProgramCard from "@/components/ProgramCard";
 import CategoryFilter from "@/components/CategoryFilter";
+import { fetchPrograms } from "@/data/programs";
+
+const API = "http://localhost:3001/api";
 
 export default function FederalPage() {
   const [searchParams] = useSearchParams();
   const initialCat = (searchParams.get("category") as ProgramCategory) || "all";
   const [filter, setFilter] = useState<ProgramCategory | "all">(initialCat);
-  const programs = getFederalPrograms();
+  const [programs, setPrograms] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetchPrograms()
+      .then((data) => {
+        setPrograms(data.filter((p) => p.level === "federal"));
+        setLoading(false);
+      })
+      .catch(() => { setError(true); setLoading(false); });
+  }, []);
 
   const filtered = useMemo(
     () => (filter === "all" ? programs : programs.filter((p) => p.category === filter)),
@@ -32,9 +47,17 @@ export default function FederalPage() {
       <CategoryFilter active={filter} onChange={setFilter} />
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        {filtered.map((p) => (
-          <ProgramCard key={p.id} program={p} />
-        ))}
+        {loading ? (
+          <div className="col-span-full text-center text-muted-foreground py-10">Loading programs...</div>
+        ) : error ? (
+          <div className="col-span-full text-center text-muted-foreground py-10">Failed to load programs. Make sure the backend is running.</div>
+        ) : filtered.length > 0 ? (
+          filtered.map((p) => <ProgramCard key={p.id} program={p} />)
+        ) : (
+          <div className="col-span-full rounded-lg border bg-card p-10 text-center">
+            <p className="text-muted-foreground mb-4">No programs match this category.</p>
+          </div>
+        )}
       </div>
     </div>
   );
