@@ -1,15 +1,31 @@
 import { useParams, Link } from "react-router-dom";
-import { useState, useMemo } from "react";
-import { getProgramsByState, getStateName, type ProgramCategory } from "@/data/programs";
+import { useState, useMemo, useEffect } from "react";
+import { US_STATES, type ProgramCategory } from "@/data/programs";
 import ProgramCard from "@/components/ProgramCard";
 import CategoryFilter from "@/components/CategoryFilter";
+import { fetchPrograms } from "@/data/programs";
+
+const API = "http://localhost:3001/api";
 
 export default function StatePage() {
   const { code } = useParams<{ code: string }>();
   const stateCode = code?.toUpperCase() ?? "";
-  const stateName = getStateName(stateCode);
-  const programs = getProgramsByState(stateCode);
+  const stateName = US_STATES.find((s) => s.code === stateCode)?.name ?? stateCode;
+
   const [filter, setFilter] = useState<ProgramCategory | "all">("all");
+  const [programs, setPrograms] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetchPrograms()
+      .then((data) => {
+        setPrograms(data.filter((p) => p.state.toLowerCase() === stateName.toLowerCase()));
+        setLoading(false);
+      })
+      .catch(() => { setError(true); setLoading(false); });
+  }, [stateName]);
 
   const filtered = useMemo(
     () => (filter === "all" ? programs : programs.filter((p) => p.category === filter)),
@@ -27,7 +43,11 @@ export default function StatePage() {
       <CategoryFilter active={filter} onChange={setFilter} />
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        {filtered.length > 0 ? (
+        {loading ? (
+          <div className="col-span-full text-center text-muted-foreground py-10">Loading programs...</div>
+        ) : error ? (
+          <div className="col-span-full text-center text-muted-foreground py-10">Failed to load programs. Make sure the backend is running.</div>
+        ) : filtered.length > 0 ? (
           filtered.map((p) => <ProgramCard key={p.id} program={p} />)
         ) : (
           <div className="col-span-full rounded-lg border bg-card p-10 text-center">

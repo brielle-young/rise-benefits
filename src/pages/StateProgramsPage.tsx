@@ -1,6 +1,7 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { getAllStatePrograms, getProgramsByState, US_STATES, type ProgramCategory } from "@/data/programs";
+import { type ProgramCategory } from "@/data/programs";
+import { fetchPrograms } from "@/data/programs";
 import ProgramCard from "@/components/ProgramCard";
 import CategoryFilter from "@/components/CategoryFilter";
 import {
@@ -18,11 +19,33 @@ export default function StateProgramsPage() {
 
   const [filter, setFilter] = useState<ProgramCategory | "all">(initialCat);
   const [selectedState, setSelectedState] = useState(initialState);
+  const [programs, setPrograms] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [availableStates, setAvailableStates] = useState<string[]>([]);
 
-  const programs = useMemo(
-    () => (selectedState === "all" ? getAllStatePrograms() : getProgramsByState(selectedState)),
-    [selectedState]
-  );
+  useEffect(() => {
+    setLoading(true);
+    setError(false);
+    fetchPrograms()
+      .then((data) => {
+        const stateAndTerritory = data.filter((p) => p.level === "state" || p.level === "territory");
+
+        const unique = [...new Set(stateAndTerritory.map((p) => p.state))]
+          .filter(Boolean)
+          .sort();
+
+        setAvailableStates(unique);
+
+        const filtered = selectedState === "all"
+          ? stateAndTerritory
+          : stateAndTerritory.filter((p) => p.state.toLowerCase() === selectedState.toLowerCase());
+
+        setPrograms(filtered);
+        setLoading(false);
+      })
+      .catch(() => { setError(true); setLoading(false); });
+  }, [selectedState]);
 
   const filtered = useMemo(
     () => (filter === "all" ? programs : programs.filter((p) => p.category === filter)),
@@ -57,9 +80,9 @@ export default function StateProgramsPage() {
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All States & Territories</SelectItem>
-            {US_STATES.map((s) => (
-              <SelectItem key={s.code} value={s.code}>
-                {s.name}
+            {availableStates.map((name) => (
+              <SelectItem key={name} value={name}>
+                {name}
               </SelectItem>
             ))}
           </SelectContent>
@@ -69,7 +92,11 @@ export default function StateProgramsPage() {
       <CategoryFilter active={filter} onChange={setFilter} />
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        {filtered.length > 0 ? (
+        {loading ? (
+          <div className="col-span-full text-center text-muted-foreground py-10">Loading programs...</div>
+        ) : error ? (
+          <div className="col-span-full text-center text-muted-foreground py-10">Failed to load programs. Check your connection and try again.</div>
+        ) : filtered.length > 0 ? (
           filtered.map((p) => <ProgramCard key={p.id} program={p} />)
         ) : (
           <div className="col-span-full rounded-lg border bg-card p-10 text-center">
