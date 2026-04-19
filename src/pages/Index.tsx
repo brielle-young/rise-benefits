@@ -54,9 +54,9 @@ export default function Index() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-block mb-5 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/10"
+            className="inline-block mb-5 px-4 py-1.5 bg-primary/10 rounded-none opacity-100 border-none border-0 border-primary-foreground"
           >
-            <span className="text-primary text-sm font-medium tracking-wide">Residential Incentives for Sustainability &amp; Environmentalism</span>
+            <span className="text-primary text-sm font-medium tracking-wide"></span>
           </motion.div>
 
           <motion.h1
@@ -65,16 +65,16 @@ export default function Index() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-5 leading-[1.1]"
           >
-            Find Sustainability Programs <br className="hidden sm:block" /> That Work for You
+            Find Residential <br className="hidden sm:block" /> Incentives and Rebates Today
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-3 leading-relaxed"
+            className="text-lg max-w-2xl mx-auto mb-3 leading-relaxed md:text-base text-ring"
           >
-            RISE makes it easy to find energy rebates, water incentives, transportation programs, and recycling initiatives in your state or nationwide.
+            RISE makes it easy to find energy rebates, water incentives, transportation programs, and recycling initiatives in your state and nationwide.
           </motion.p>
 
           <motion.p
@@ -84,7 +84,7 @@ export default function Index() {
           >
             <button
               onClick={() => navigate("/local")}
-              className="text-secondary hover:text-secondary/80 underline underline-offset-4 text-sm font-medium transition-colors active:scale-[0.97]"
+              className="underline underline-offset-4 transition-colors active:scale-[0.97] text-[#245615] font-bold font-sans text-base"
             >
               Looking for local resources? Start here →
             </button>
@@ -155,8 +155,8 @@ export default function Index() {
       <section className="bg-muted py-16">
         <div className="container max-w-3xl text-center">
           <h2 className="font-serif text-2xl md:text-3xl mb-4">Why RISE?</h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Finding sustainability programs shouldn't be complicated. Right now, information about rebates and incentives is scattered across dozens of government websites and buried in technical language. RISE organizes information by state and category so you can quickly see what is available, whether you qualify, and how to apply, with no policy expertise required.
+          <p className="leading-relaxed text-ring">
+            Saving money shouldn't be complicated. Right now, information about rebates and incentives is scattered across dozens of government websites and buried in technical language. RISE organizes information by state and category so you can quickly see what is available, whether you qualify, and how to apply, with no policy expertise required.
           </p>
         </div>
       </section>
