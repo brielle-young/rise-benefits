@@ -95,7 +95,16 @@ export default function LocalInfoPage() {
             <div className="flex items-start gap-4 mb-4">
               <span className="text-3xl shrink-0">{resource.icon}</span>
               <div>
-                <h2 className="font-serif text-xl md:text-2xl text-card-foreground">{resource.title}</h2>
+                <h2 className="font-serif text-xl md:text-2xl text-card-foreground">
+                  <a
+                    href={resource.link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary hover:underline transition-colors"
+                  >
+                    {resource.title}
+                  </a>
+                </h2>
                 <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{resource.description}</p>
               </div>
             </div>
