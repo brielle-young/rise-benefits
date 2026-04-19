@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import riseLogo from "@/assets/rise-logo.png";
 
 export default function Footer() {
   return (
@@ -6,8 +7,7 @@ export default function Footer() {
       <div className="container py-10 grid gap-8 sm:grid-cols-3">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-xl">🌱</span>
-            <span className="font-serif text-lg text-primary font-bold">RISE</span>
+            <img src={riseLogo} alt="RISE logo" className="h-10 w-auto" />
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
             Residential Incentives for Sustainability and Environmentalism. Helping every household access sustainability programs.

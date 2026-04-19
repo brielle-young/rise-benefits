@@ -6,11 +6,11 @@ const RESOURCES = [
   {
     title: "Find Your Local Utility",
     icon: "🏠",
-    description: "Your local electric, gas, and water utilities often run their own rebate and efficiency programs. These are some of the easiest incentives to access.",
+    description: "Some of the easiest incentives to obtain are from your local electric, gas, and water utilities, which often run their own rebate and efficiency programs.",
     steps: [
-      "Check a recent utility bill for your provider's name.",
+      "Check your recent utility bill to find your provider's name.",
       "Visit their website and search for \"rebates,\" \"incentives,\" or \"energy efficiency programs.\"",
-      "Many utilities offer free home energy audits — call and ask.",
+      "Many utilities offer free home energy audits. All you have to do is call and ask.",
       "Low-income assistance programs (like LIHEAP) are often administered through utilities.",
     ],
     link: { label: "LIHEAP — Low Income Energy Assistance", url: "https://www.acf.hhs.gov/ocs/low-income-home-energy-assistance-program-liheap" },
@@ -42,10 +42,10 @@ const RESOURCES = [
   {
     title: "Contact Your Local Government",
     icon: "🏛️",
-    description: "County and municipal governments may offer additional programs not listed in state or federal databases — from composting and recycling to weatherization grants.",
+    description: "County and municipal governments may offer additional programs not listed in state or federal databases, such as composting, recycling, and weatherization grants.",
     steps: [
       "Search \"[your city or county] sustainability programs\" or \"green incentives.\"",
-      "Check your local government website for environment or public works departments.",
+      "Check your local government website for environmental or public works departments.",
       "Attend city council or county board meetings where new programs are discussed.",
       "Ask about Community Development Block Grants (CDBG) that may fund local green initiatives.",
     ],
@@ -78,7 +78,7 @@ export default function LocalInfoPage() {
       </p>
       <h1 className="font-serif text-3xl md:text-4xl mb-2">Local Programs & Resources</h1>
       <p className="text-muted-foreground mb-10 max-w-2xl">
-        Beyond the programs listed on RISE, there are many ways to find sustainability incentives in your area. Here's how to navigate local resources.
+        Beyond the programs listed on RISE, there are many other ways to find sustainability incentives in your area. Here is how to navigate local resources.
       </p>
 
       <div className="space-y-6">

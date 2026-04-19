@@ -46,10 +46,10 @@ export default function AboutPage() {
 
       <section className="space-y-4 text-muted-foreground leading-relaxed">
         <p>
-          <strong className="text-foreground">RISE (Residential Incentives for Sustainability and Environmentalism)</strong> is a student-led project with a simple goal: make it easier for people to find sustainability programs they can actually use. We built a free, public platform that gathers residential sustainability programs from across all 50 states and U.S. territories and presents them in one searchable directory.
+          <strong className="text-foreground">RISE (Residential Incentives for Sustainability and Environmentalism)</strong> is a student-led project that makes it easier for people to find sustainability programs they can actually use. We built a free, public platform that gathers residential sustainability programs from across all 50 states and U.S. territories and presents them in one searchable directory.
         </p>
         <p>
-          Too often, valuable rebates and incentives go unclaimed because the information is difficult to find and scattered across multiple agencies. RISE organizes these programs by location and category so that anyone, regardless of policy knowledge or technical literacy, can see what's available, understand the requirements, and take the next step.
+          Too often, valuable rebates and incentives go unclaimed because the information is hard to find, scattered across multiple agencies, or written in language that's difficult to parse. RISE organizes these programs by location and category so that anyone, regardless of policy knowledge or technical literacy, can see what is available, understand the requirements, and take the next step.
         </p>
       </section>
 
@@ -58,10 +58,10 @@ export default function AboutPage() {
       <h2 className="font-serif text-2xl mb-4">Our Values</h2>
       <div className="grid sm:grid-cols-2 gap-4 mb-10">
         {[
-          { title: "Accessibility", desc: "Designed for users of all backgrounds, with mobile-first usability and plain language." },
-          { title: "Clarity", desc: "No jargon. Every program listing is scannable, understandable, and actionable." },
-          { title: "Equity", desc: "Particular attention to rural, low-income, and under-resourced communities." },
-          { title: "Accuracy", desc: "Clear sourcing, official links, and transparent information." },
+          { title: "Accessibility", desc: "Designed for users of all backgrounds, with mobile-first design and simple language." },
+          { title: "Clarity", desc: "No jargon. Every program listing is easy to scan, understand, and act on." },
+          { title: "Equity", desc: "Focused on supporting rural, low-income, and under-resourced communities." },
+          { title: "Accuracy", desc: "Clear sources, official links, and transparent information." },
         ].map((v) => (
           <div key={v.title} className="rounded-lg border bg-card p-5">
             <h3 className="font-serif text-lg mb-1 text-card-foreground">{v.title}</h3>
@@ -116,7 +116,7 @@ export default function AboutPage() {
       <div className="space-y-3 text-muted-foreground text-sm">
         <p>RISE does not determine eligibility or provide applications directly.</p>
         <p>RISE does not offer financial advice or guarantee program availability.</p>
-        <p>RISE is an information and navigation tool - not a replacement for official agencies.</p>
+        <p>RISE is an information and navigation tool, not a replacement for official agencies.</p>
       </div>
     </div>
   );
