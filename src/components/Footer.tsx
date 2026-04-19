@@ -10,7 +10,7 @@ export default function Footer() {
             <img src={riseLogo} alt="RISE logo" className="h-10 w-auto" />
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Residential Incentives for Sustainability and Environmentalism. Helping every household access sustainability programs.
+            Residential Incentives for Sustainability and Environmentalism. Helping every household access tax rebates, programs, and incentives.
           </p>
         </div>
         <div>
@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} RISE. A student-led initiative.
+        © {new Date().getFullYear()} RISE.
       </div>
     </footer>
   );
