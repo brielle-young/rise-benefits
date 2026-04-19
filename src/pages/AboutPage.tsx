@@ -85,12 +85,12 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
             <h3 className="font-serif text-xl mb-4 text-foreground">{team.name}</h3>
-            <div className="flex gap-4 justify-start flex-wrap">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {team.members.map((member) => (
                 <div
                   key={member.name}
-                  className="w-48 rounded-lg border bg-card p-6 text-center transition-shadow hover:shadow-md">
-                  <div className="w-36 h-36 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3 text-lg font-semibold">
+                  className="w-full rounded-lg border bg-card p-6 text-center transition-shadow hover:shadow-md">
+                  <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3 text-lg font-semibold overflow-hidden">
                     {member.pfp ? ( //if pfp exisits
                       <img
                         src={member.pfp}
