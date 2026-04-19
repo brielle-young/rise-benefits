@@ -78,7 +78,7 @@ export default function LocalInfoPage() {
       </p>
       <h1 className="font-serif text-3xl md:text-4xl mb-2">Local Programs & Resources</h1>
       <p className="text-muted-foreground mb-10 max-w-2xl">
-        Beyond the programs listed on RISE, there are many other ways to find sustainability incentives in your area. Here is how to navigate local resources.
+        Beyond the programs listed on RISE, there are many other ways to find incentives in your area. Here is how to navigate local resources.
       </p>
 
       <div className="space-y-6">
