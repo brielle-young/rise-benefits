@@ -37,7 +37,7 @@ export default function FederalPage() {
       </p>
       <h1 className="font-serif text-3xl md:text-4xl mb-2">Federal Programs</h1>
       <p className="text-muted-foreground mb-8">
-        Nationwide sustainability programs available to residents across all states and territories.
+        Nationwide incentives available to residents across all states and territories.
       </p>
 
       <div className="rounded-lg border border-secondary/40 bg-secondary/10 p-4 mb-8 text-sm text-muted-foreground">
