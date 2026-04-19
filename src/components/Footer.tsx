@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} RISE.
+        © 2026 RISE.
       </div>
     </footer>
   );
