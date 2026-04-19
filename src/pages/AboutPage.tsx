@@ -41,7 +41,7 @@ const sectionVariants = {
 
 export default function AboutPage() {
   return (
-    <div className="container py-12 md:py-16 max-w-3xl px-6 sm:px-8 md:px-12">
+    <div className="container py-8 md:py-10 max-w-3xl px-3 sm:px-4">
       <h1 className="font-serif text-3xl md:text-4xl mb-6">About RISE</h1>
 
       <section className="space-y-4 text-muted-foreground leading-relaxed">
