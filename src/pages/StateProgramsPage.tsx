@@ -15,14 +15,19 @@ import {
 export default function StateProgramsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCat = (searchParams.get("category") as ProgramCategory) || "all";
-  const initialState = searchParams.get("state") || "all";
+  const stateParam = searchParams.get("state") || "all";
 
   const [filter, setFilter] = useState<ProgramCategory | "all">(initialCat);
-  const [selectedState, setSelectedState] = useState(initialState);
+  const [selectedState, setSelectedState] = useState(stateParam);
   const [programs, setPrograms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [availableStates, setAvailableStates] = useState<string[]>([]);
+
+  // Keep selectedState in sync with URL changes (e.g. from Home search).
+  useEffect(() => {
+    setSelectedState(stateParam);
+  }, [stateParam]);
 
   useEffect(() => {
     setLoading(true);
