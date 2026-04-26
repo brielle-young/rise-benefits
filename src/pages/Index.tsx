@@ -51,14 +51,6 @@ export default function Index() {
         </div>
 
         <div className="container relative text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-block mb-5 px-4 py-1.5 bg-primary/10 rounded-none opacity-100 border-none border-0 border-primary-foreground"
-          >
-            <span className="text-primary text-sm font-medium tracking-wide"></span>
-          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
