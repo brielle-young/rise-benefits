@@ -27,7 +27,7 @@ const TEAMS: { name: string; members: TeamMember[] }[] = [
   {
     name: "Web Development Team",
     members: [
-      { name: "Venya Sharma", role: "Developer", pfp: "/TeamPics/venya_sharma.png" },
+      { name: "Venya Sharma", role: "Developer", pfp: "/TeamPics/venya_sharma.jpg" },
       { name: "Anna Kuang", role: "Developer", pfp: "/TeamPics/anna_kuang.png" },
       { name: "Mindi Hu", role: "Developer", pfp: "/TeamPics/mindi_hu.jpg" },
       { name: "Samantha Ahn", role: "Developer", pfp: "/TeamPics/samantha_ahn.png" },
