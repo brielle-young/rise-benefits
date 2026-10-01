@@ -11,8 +11,8 @@ const TEAMS: { name: string; members: TeamMember[] }[] = [
     name: "Leadership Team",
     members: [
       { name: "Brielle Young", role: "Team Lead", pfp: "/TeamPics/brielle_young.png" },
-      { name: "Supriya Anand", role: "Team Lead", pfp: "/TeamPics/touchdown.avif" },
-      { name: "Mia Tarantini", role: "Team Lead", pfp: "/TeamPics/touchdown.avif" },
+      { name: "Supriya Anand", role: "Team Lead", pfp: "/TeamPics/supriya_anand.jpg" },
+      { name: "Mia Tarantini", role: "Team Lead", pfp: "/TeamPics/mia_tarantini.png" },
       { name: "Iris Ren", role: "Team Lead", pfp: "/TeamPics/touchdown.avif" },
 
     ],
@@ -20,8 +20,8 @@ const TEAMS: { name: string; members: TeamMember[] }[] = [
   {
     name: "Marketing Team",
     members: [
-      { name: "Ianna Banfield", role: "Marketing", pfp: "/TeamPics/touchdown.avif" },
-      { name: "Saanvi Mantha", role: "Marketing", pfp: "/TeamPics/touchdown.avif" },
+      { name: "Ianna Banfield", role: "Marketing", pfp: "/TeamPics/ianna_banfield.jpg" },
+      { name: "Saanvi Mantha", role: "Marketing", pfp: "/TeamPics/saanvi_mantha.jpg" },
     ],
   },
   {
