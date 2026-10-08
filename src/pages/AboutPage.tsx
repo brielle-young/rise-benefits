@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 
 interface TeamMember {
   name: string;
@@ -35,14 +35,10 @@ const TEAMS: { name: string; members: TeamMember[] }[] = [
   },
 ];
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 16, filter: "blur(4px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-};
 
 export default function AboutPage() {
   return (
-    <div className="container py-8 md:py-10 max-w-3xl px-3 sm:px-4">
+    <div className="container about-page py-12 max-w-4xl">
       <h1 className="font-serif text-3xl md:text-4xl mb-6">About RISE</h1>
 
       <section className="space-y-4 text-muted-foreground leading-relaxed">
@@ -64,7 +60,7 @@ export default function AboutPage() {
           { title: "Equity", desc: "Focused on supporting rural, low-income, and under-resourced communities." },
           { title: "Accuracy", desc: "Clear sources and official links." },
         ].map((v) => (
-          <div key={v.title} className="rounded-lg border bg-card p-5">
+          <div key={v.title} className="value-item border-t py-5">
             <h3 className="font-serif text-lg mb-1 text-card-foreground">{v.title}</h3>
             <p className="text-sm text-muted-foreground">{v.desc}</p>
           </div>
@@ -77,26 +73,21 @@ export default function AboutPage() {
       <h2 className="font-serif text-2xl mb-6">Our Team</h2>
       <div className="space-y-10 mb-10">
         {TEAMS.map((team, i) => (
-          <motion.div
+          <div
             key={team.name}
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
           >
             <h3 className="font-serif text-xl mb-4 text-foreground">{team.name}</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {team.members.map((member) => (
                 <div
                   key={member.name}
-                  className="w-full rounded-lg border bg-card p-6 text-center transition-shadow hover:shadow-md">
-                  <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3 text-lg font-semibold overflow-hidden">
+                  className="w-full team-member">
+                  <div className="w-24 h-24 rounded-md bg-primary/10 text-primary flex items-center justify-center mb-3 text-lg font-semibold overflow-hidden">
                     {member.pfp ? ( //if pfp exisits
                       <img
                         src={member.pfp}
                         alt={member.name}
-                        className="w-full h-full object-cover"
+                        loading="lazy" width="96" height="96" className="w-full h-full object-cover"
                       /> ) : ( //if pfp doesn't exist, use initials
                       <span className="text-lg font-semibold text-primary">
                         {member.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
@@ -108,7 +99,7 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+
 import { ExternalLink } from "lucide-react";
 
 const RESOURCES = [
@@ -65,14 +65,10 @@ const RESOURCES = [
   },
 ];
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 16, filter: "blur(4px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-};
 
 export default function LocalInfoPage() {
   return (
-    <div className="container py-12 max-w-4xl">
+    <div className="container local-page py-12 max-w-4xl">
       <p className="text-sm text-muted-foreground mb-1">
         <Link to="/" className="hover:text-foreground transition-colors">Home</Link> / Local Programs
       </p>
@@ -83,17 +79,12 @@ export default function LocalInfoPage() {
 
       <div className="space-y-6">
         {RESOURCES.map((resource, i) => (
-          <motion.div
+          <div
             key={resource.title}
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="rounded-xl border bg-card p-6 md:p-8"
+            className="resource-section border-t py-8"
           >
             <div className="flex items-start gap-4 mb-4">
-              <span className="text-3xl shrink-0">{resource.icon}</span>
+              <span className="index-number pt-1" aria-hidden="true">0{i + 1}</span>
               <div>
                 <h2 className="font-serif text-xl md:text-2xl text-card-foreground">
                   <a
@@ -109,13 +100,13 @@ export default function LocalInfoPage() {
               </div>
             </div>
 
-            <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground ml-12 mb-4">
+            <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground sm:ml-12 mb-4">
               {resource.steps.map((step, j) => (
                 <li key={j} className="leading-relaxed">{step}</li>
               ))}
             </ol>
 
-            <div className="ml-12">
+            <div className="sm:ml-12">
               <a
                 href={resource.link.url}
                 target="_blank"
@@ -125,11 +116,11 @@ export default function LocalInfoPage() {
                 {resource.link.label} <ExternalLink size={14} />
               </a>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
-      <div className="mt-12 rounded-xl border border-secondary/40 bg-secondary/10 p-6 text-center">
+      <div className="mt-12 rounded-md border border-secondary/40 bg-secondary/10 p-6">
         <p className="text-sm text-muted-foreground">
           Know of a resource we should include?{" "}
           <Link to="/contact" className="text-primary font-medium hover:underline">Let us know</Link>

@@ -17,21 +17,22 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-card/80 backdrop-blur-md">
-      <div className="container flex h-24 md:h-28 items-center justify-between">
+    <header className="site-header border-b">
+      <div className="container flex h-24 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <img src={riseLogo} alt="RISE logo" className="h-20 md:h-24 w-auto" />
+          <img src={riseLogo} alt="RISE logo" className="h-16 w-auto" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
+        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-5">
           {NAV_LINKS.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className={`px-4 py-2 rounded-md text-base font-medium transition-colors ${
+              aria-current={pathname === l.to ? "page" : undefined}
+              className={`nav-link py-2 text-sm font-medium transition-colors ${
                 pathname === l.to
-                  ? "bg-primary text-primary-foreground"
-                  : "text-foreground/80 hover:text-foreground hover:bg-muted"
+                  ? "text-primary nav-active"
+                  : "text-muted-foreground hover:text-primary"
               }`}
             >
               {l.label}
@@ -40,25 +41,27 @@ export default function Navbar() {
         </nav>
 
         <button
-          className="md:hidden p-2 rounded-md hover:bg-muted"
+          className="lg:hidden p-2 rounded-md hover:bg-muted"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open} aria-controls="mobile-navigation"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {open && (
-        <nav className="md:hidden border-t bg-card px-4 pb-4 pt-2 space-y-1">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="lg:hidden border-t bg-card px-4 pb-4 pt-2 space-y-1">
           {NAV_LINKS.map((l) => (
             <Link
               key={l.to}
               to={l.to}
+              aria-current={pathname === l.to ? "page" : undefined}
               onClick={() => setOpen(false)}
               className={`block px-4 py-3 rounded-md text-base font-medium transition-colors ${
                 pathname === l.to
-                  ? "bg-primary text-primary-foreground"
-                  : "text-foreground/80 hover:text-foreground hover:bg-muted"
+                  ? "text-primary nav-active"
+                  : "text-muted-foreground hover:text-primary"
               }`}
             >
               {l.label}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { Mail } from "lucide-react";
+
 
 const MESSAGE_TYPES = [
   "Report a broken link",
@@ -27,18 +27,18 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container py-12 max-w-2xl">
+    <div className="container contact-page py-12 max-w-3xl">
       <h1 className="font-serif text-3xl md:text-4xl mb-2">Contact Us</h1>
       <p className="text-muted-foreground mb-8">
         Have a correction, suggestion, or question? We'd love to hear from you.
       </p>
 
-      <div className="rounded-lg border border-secondary/40 bg-secondary/10 p-4 mb-8 text-sm text-muted-foreground">
+      <div className="rounded-md border border-secondary/40 bg-secondary/10 p-4 mb-8 text-sm text-muted-foreground">
         <strong className="text-foreground">Please note:</strong> RISE cannot provide eligibility determinations or process applications. We welcome corrections, program suggestions, and general feedback.
       </div>
 
-      <div className="flex items-center gap-3 rounded-lg border bg-card p-4 mb-8">
-        <Mail size={20} className="text-primary shrink-0" />
+      <div className="flex items-center gap-3 rounded-md border bg-card p-4 mb-8">
+
         <div>
           <p className="text-sm font-medium text-card-foreground">Email us directly</p>
           <a
@@ -52,31 +52,31 @@ export default function ContactPage() {
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block text-sm font-medium mb-1.5">Name</label>
+          <label htmlFor="contact-name" className="block text-sm font-medium mb-1.5">Name</label>
           <input
-            type="text"
+            id="contact-name" autoComplete="name" type="text"
             required
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className="w-full rounded-lg border bg-card px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full rounded-md border bg-card px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1.5">Email</label>
+          <label htmlFor="contact-email" className="block text-sm font-medium mb-1.5">Email</label>
           <input
-            type="email"
+            id="contact-email" autoComplete="email" type="email"
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full rounded-lg border bg-card px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full rounded-md border bg-card px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1.5">Message Type</label>
-          <select
+          <label htmlFor="contact-type" className="block text-sm font-medium mb-1.5">Message Type</label>
+          <select id="contact-type"
             value={form.type}
             onChange={(e) => setForm({ ...form, type: e.target.value })}
-            className="w-full rounded-lg border bg-card px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full rounded-md border bg-card px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           >
             {MESSAGE_TYPES.map((t) => (
               <option key={t}>{t}</option>
@@ -84,18 +84,18 @@ export default function ContactPage() {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1.5">Message</label>
-          <textarea
+          <label htmlFor="contact-message" className="block text-sm font-medium mb-1.5">Message</label>
+          <textarea id="contact-message"
             required
             rows={5}
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
-            className="w-full rounded-lg border bg-card px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+            className="w-full rounded-md border bg-card px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none"
           />
         </div>
         <button
           type="submit"
-          className="rounded-lg bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
+          className="rounded-md bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
         >
           Send Message
         </button>
