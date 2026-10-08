@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { type ProgramCategory } from "@/data/programs";
+import { type Program, type ProgramCategory } from "@/data/programs";
 import ProgramCard from "@/components/ProgramCard";
 import CategoryFilter from "@/components/CategoryFilter";
 import { fetchPrograms } from "@/data/programs";
@@ -11,7 +11,7 @@ export default function FederalPage() {
   const [searchParams] = useSearchParams();
   const initialCat = (searchParams.get("category") as ProgramCategory) || "all";
   const [filter, setFilter] = useState<ProgramCategory | "all">(initialCat);
-  const [programs, setPrograms] = useState([]);
+  const [programs, setPrograms] = useState<Program[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -35,6 +35,16 @@ export default function FederalPage() {
       <p className="text-sm text-muted-foreground mb-1">
         <Link to="/" className="hover:text-foreground transition-colors">Home</Link> / Federal Programs
       </p>
+
+      <div className="directory-layout">
+        <aside className="directory-filters" aria-label="Program filters">
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-6">Filter programs</p>
+      <p className="text-sm font-semibold mb-3">Category</p>
+      <CategoryFilter active={filter} onChange={setFilter} />
+
+        </aside>
+        <section className="directory-main min-w-0" aria-label="Program results">
+          <div className="directory-intro">
       <h1 className="font-serif text-3xl md:text-4xl mb-2">Federal Programs</h1>
       <p className="text-muted-foreground mb-8">
         Nationwide incentives available to residents across all states and territories.
@@ -43,21 +53,22 @@ export default function FederalPage() {
       <div className="rounded-lg border border-secondary/40 bg-secondary/10 p-4 mb-8 text-sm text-muted-foreground">
         <strong className="text-foreground">Note:</strong> Federal programs may be administered through state agencies or local utilities. Check your state page for local implementation details.
       </div>
-
-      <CategoryFilter active={filter} onChange={setFilter} />
-
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {!loading && <p className="text-sm text-muted-foreground mb-6" aria-live="polite">{filtered.length} {filtered.length === 1 ? "program" : "programs"} {"available nationwide"}</p>}
+          </div>
+      <div className="directory-results grid gap-5">
         {loading ? (
           <div className="col-span-full text-center text-muted-foreground py-10">Loading programs...</div>
         ) : error ? (
           <div className="col-span-full text-center text-muted-foreground py-10">Failed to load programs. Make sure the backend is running.</div>
         ) : filtered.length > 0 ? (
-          filtered.map((p) => <ProgramCard key={p.id} program={p} />)
+          filtered.map((p) => <ProgramCard key={p.id} program={p} directory />)
         ) : (
           <div className="col-span-full rounded-lg border bg-card p-10 text-center">
             <p className="text-muted-foreground mb-4">No programs match this category.</p>
           </div>
         )}
+      </div>
+        </section>
       </div>
     </div>
   );

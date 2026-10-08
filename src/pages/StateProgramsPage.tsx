@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { type ProgramCategory } from "@/data/programs";
+import { type Program, type ProgramCategory } from "@/data/programs";
 import { fetchPrograms } from "@/data/programs";
 import ProgramCard from "@/components/ProgramCard";
 import CategoryFilter from "@/components/CategoryFilter";
@@ -20,7 +20,7 @@ export default function StateProgramsPage() {
 
   const [filter, setFilter] = useState<ProgramCategory | "all">(initialCat);
   const [selectedState, setSelectedState] = useState(stateParam);
-  const [programs, setPrograms] = useState([]);
+  const [programs, setPrograms] = useState<Program[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [availableStates, setAvailableStates] = useState<string[]>([]);
@@ -74,14 +74,14 @@ export default function StateProgramsPage() {
       <p className="text-sm text-muted-foreground mb-1">
         <Link to="/" className="hover:text-foreground transition-colors">Home</Link> / State Programs
       </p>
-      <h1 className="font-serif text-3xl md:text-4xl mb-2">State Programs</h1>
-      <p className="text-muted-foreground mb-8">
-        Browse incentives available at the state level across the U.S.
-      </p>
 
-      <div className="flex flex-col sm:flex-row gap-4 mb-8">
+      <div className="directory-layout">
+        <aside className="directory-filters" aria-label="Program filters">
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-6">Filter programs</p>
+      <div className="mb-8">
+        <p id="state-filter-label" className="text-sm font-semibold mb-3">State</p>
         <Select value={selectedState} onValueChange={handleStateChange}>
-          <SelectTrigger className="w-full sm:w-64">
+          <SelectTrigger aria-labelledby="state-filter-label" className="w-full">
             <SelectValue placeholder="All States & Territories" />
           </SelectTrigger>
           <SelectContent>
@@ -95,15 +95,25 @@ export default function StateProgramsPage() {
         </Select>
       </div>
 
+      <p className="text-sm font-semibold mb-3">Category</p>
       <CategoryFilter active={filter} onChange={setFilter} />
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        </aside>
+        <section className="directory-main min-w-0" aria-label="Program results">
+          <div className="directory-intro">
+      <h1 className="font-serif text-3xl md:text-4xl mb-2">State Programs</h1>
+      <p className="text-muted-foreground mb-8">
+        Browse incentives available at the state level across the U.S.
+      </p>
+          {!loading && <p className="text-sm text-muted-foreground mb-6" aria-live="polite">{filtered.length} {filtered.length === 1 ? "program" : "programs"} {"for this selection"}</p>}
+          </div>
+      <div className="directory-results grid gap-5">
         {loading ? (
           <div className="col-span-full text-center text-muted-foreground py-10">Loading programs...</div>
         ) : error ? (
           <div className="col-span-full text-center text-muted-foreground py-10">Failed to load programs. Check your connection and try again.</div>
         ) : filtered.length > 0 ? (
-          filtered.map((p) => <ProgramCard key={p.id} program={p} />)
+          filtered.map((p) => <ProgramCard key={p.id} program={p} directory />)
         ) : (
           <div className="col-span-full rounded-lg border bg-card p-10 text-center">
             <p className="text-muted-foreground mb-4">
@@ -116,6 +126,8 @@ export default function StateProgramsPage() {
             </Link>
           </div>
         )}
+      </div>
+        </section>
       </div>
     </div>
   );

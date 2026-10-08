@@ -100,3 +100,50 @@
     font-family: 'DM Serif Display', serif;
   }
 }
+
+/* Homepage panels retain the original design while giving each topic a screen. */
+.home-panel {
+  min-height: calc(100svh - 6rem - 1px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(3rem, 8svh, 6rem);
+}
+
+@media (min-width: 768px) {
+  .home-panel {
+    min-height: calc(100svh - 7rem - 1px);
+  }
+}
+
+/* Match the homepage panel height while giving footer columns room to breathe. */
+.site-footer {
+  min-height: calc(100svh - 6rem - 1px);
+  display: flex;
+  flex-direction: column;
+}
+.footer-content {
+  flex: 1;
+  align-content: center;
+  padding-block: clamp(3rem, 8svh, 6rem);
+}
+.footer-content a { overflow-wrap: anywhere; }
+.footer-content ul { line-height: 1.8; }
+.directory-layout { display: grid; gap: 2.5rem; margin-top: 2.5rem; }
+.directory-filters { align-self: start; padding: 1.5rem; border: 1px solid hsl(var(--border)); border-radius: var(--radius); background: hsl(var(--card)); }
+.directory-filters > div:last-child { flex-direction: column; align-items: stretch; }
+.directory-filters > div:last-child button { text-align: left; }
+.directory-program { padding: 1.5rem; }
+@media (min-width: 768px) {
+  .site-footer { min-height: calc(100svh - 7rem - 1px); }
+  .directory-layout { grid-template-columns: 15rem minmax(0, 1fr); gap: 3rem; }
+}
+@media (min-width: 1280px) {
+  .directory-layout { grid-template-columns: 17rem minmax(0, 1fr); gap: 4rem; }
+}
+/* Keep the page title ahead of the filters when the sidebar stacks on mobile. */
+@media (max-width: 767px) {
+  .directory-main { display: contents; }
+  .directory-intro { grid-row: 1; }
+  .directory-filters > div:last-child { flex-direction: row; flex-wrap: wrap; }
+}

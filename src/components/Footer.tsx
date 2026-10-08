@@ -3,8 +3,8 @@ import riseLogo from "@/assets/rise-logo.png";
 
 export default function Footer() {
   return (
-    <footer className="border-t bg-card mt-auto">
-      <div className="container py-10 grid gap-8 sm:grid-cols-3">
+    <footer className="site-footer border-t bg-card mt-auto">
+      <div className="footer-content container py-10 grid gap-10 sm:grid-cols-3">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <img src={riseLogo} alt="RISE logo" className="h-10 w-auto" />

@@ -18,7 +18,7 @@ const CATEGORY_ICONS: Record<ProgramCategory, string> = {
   recycling: "♻️",
 };
 
-export default function ProgramCard({ program }: { program: Program }) {
+export default function ProgramCard({ program, directory = false }: { program: Program; directory?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const [locked, setLocked] = useState(false);
   const expanded = hovered || locked ;
@@ -34,11 +34,12 @@ export default function ProgramCard({ program }: { program: Program }) {
 
   return (
     <div
-      className="group rounded-lg border bg-card p-5 transition-shadow hover:shadow-md"
+      className={`group rounded-lg border bg-card p-5 transition-shadow hover:shadow-md ${directory ? "directory-program" : ""}`}
       onMouseEnter={() => program.details && setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={() => program.details && HandleClick()}>
     
+      {directory && <p className="directory-location text-xs font-medium text-muted-foreground mb-3">{program.state || "Nationwide"}</p>}
       <div className="flex items-start justify-between gap-3 mb-3">
         <h3 className="font-serif text-lg text-card-foreground leading-snug">{program.name}</h3>
         <span
@@ -81,7 +82,8 @@ export default function ProgramCard({ program }: { program: Program }) {
               e.stopPropagation();
               setLocked(!locked);
             }}
-            className="md:hidden inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+            className={`${directory ? "" : "md:hidden"} inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors`}
+            aria-expanded={expanded}
           >
             Details <ChevronDown size={14} className={`transition-transform ${expanded ? "rotate-180" : ""}`} />
           </button>

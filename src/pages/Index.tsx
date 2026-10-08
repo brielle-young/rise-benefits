@@ -39,9 +39,9 @@ export default function Index() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-background py-16 md:py-24 z-20">
+      <section className="home-panel relative bg-background py-16 md:py-24 z-20">
         {/* US map watermark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
           <img
             src={usMapOutline}
             alt=""
@@ -128,7 +128,7 @@ export default function Index() {
       </section>
 
       {/* Browse Federal */}
-      <section className="container py-16">
+      <section className="home-panel container py-16">
         <h2 className="font-serif text-2xl md:text-3xl text-center mb-10">Browse Federal Programs</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
           {CATEGORIES.map((cat) => (
@@ -145,7 +145,7 @@ export default function Index() {
       </section>
 
       {/* Why RISE */}
-      <section className="bg-muted py-16">
+      <section className="home-panel bg-muted py-16">
         <div className="container max-w-3xl text-center">
           <h2 className="font-serif text-2xl md:text-3xl mb-4">Why RISE?</h2>
           <p className="leading-relaxed text-ring">
