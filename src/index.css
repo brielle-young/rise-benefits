@@ -188,3 +188,28 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Let each homepage topic occupy its own screen, with natural scrolling. */
+.home-hero,
+.federal-index {
+  min-height: 100svh;
+  align-content: center;
+  align-items: center;
+  padding-block: clamp(4rem, 10svh, 8rem);
+}
+
+.home-hero {
+  /* The first panel shares the initial viewport with the 96px header. */
+  min-height: calc(100svh - 6rem);
+}
+
+.why-section {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-block: clamp(4rem, 10svh, 8rem);
+}
+
+.why-layout {
+  align-items: center;
+}
